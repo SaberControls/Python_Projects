@@ -94,8 +94,7 @@ while cont:
                 
                 shift = int(input(f"Type the encryption key for level {count}:\n"))
                 shift *= -1
-                if shift > 52:
-                    shift = shift % 53
+
                 
 
 
@@ -128,12 +127,13 @@ while cont:
                     for letter in text1:
                         if letter in alphabet:
                             num = alphabet.index(letter) + shift
-                            if num > 52:
+                            if num > 52 or num < 0:
                                 num = num % 53
                             lettr = alphabet[num]
                             cipher_text += lettr
                         else:
                             cipher_text += letter
+
                     
 
                     if count > 1:
